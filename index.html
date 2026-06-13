@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Danish Danial | E-Portfolio</title>
+    
+    <!-- MEMANGGIL GOOGLE FONTS UNTUK GAYA HAND-DRAWN & IRREGULAR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Permanent+Marker&display=swap" rel="stylesheet">
+
     <style>
-        /* TEMA HIJAU PUTIH - TERMINAL STYLE */
+        /* TEMA HIJAU PUTHIH BERSIH */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
         body {
-            font-family: "Courier New", Courier, monospace; /* Font gaya terminal/hacker */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             background-color: #ffffff;
             color: #1a1a1a;
             line-height: 1.6;
@@ -34,12 +40,13 @@
             margin: 0 auto;
         }
         .logo {
+            font-family: "Courier New", monospace;
             font-weight: bold;
             font-size: 1.4rem;
             color: #1a1a1a;
         }
         .logo span {
-            color: #2ea44f; /* Warna Hijau */
+            color: #2ea44f;
         }
         .nav-links {
             display: flex;
@@ -59,7 +66,7 @@
             color: #2ea44f;
         }
 
-        /* HERO SECTION (MUKA DEPAN SEBIJI MACAM IMAGE) */
+        /* HERO SECTION (SUSUNAN BARU) */
         .hero-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -70,69 +77,53 @@
             flex-wrap: wrap;
         }
 
-        /* KOTAK GAMBAR PROFILE */
+        /* BARU: GAMBAR DI SEBELAH KIRI DENGAN FRAME MINIMALIS BARU */
         .profile-card {
             flex: 1;
             min-width: 300px;
             max-width: 380px;
-            position: relative;
         }
-        .image-frame {
-            border: 1px solid #ccc;
-            padding: 15px;
-            background: #fafafa;
-            border-radius: 4px;
-            text-align: center;
-        }
-        /* Border penjuru hiasan (Hacker style) warna hijau */
-        .image-frame::before {
-            content: '';
-            position: absolute;
-            top: -5px; left: -5px;
-            width: 20px; height: 20px;
-            border-top: 3px solid #2ea44f;
-            border-left: 3px solid #2ea44f;
-        }
-        .image-frame::after {
-            content: '';
-            position: absolute;
-            bottom: 25px; right: -5px;
-            width: 20px; height: 20px;
-            border-bottom: 3px solid #2ea44f;
-            border-right: 3px solid #2ea44f;
+        .image-frame-new {
+            border: 4px solid #1a1a1a;
+            border-top: 4px solid #2ea44f; /* Sentuhan warna hijau di atas frame */
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 5px 5px 0px #2ea44f; /* Bayang gaya pop-art hijau */
         }
         .profile-img-placeholder {
             width: 100%;
             height: 400px;
-            background-color: #e0e0e0;
+            background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #666;
-            border-radius: 4px;
+            color: #888;
+            border-radius: 8px;
+            font-family: "Courier New", monospace;
         }
-        .status-tag {
-            font-size: 0.9rem;
+        
+        /* BARU: "Hi, Danish Danial Is Here" TEXT */
+        .greeting-tag {
+            font-size: 1.1rem;
             color: #2ea44f;
-            margin-top: 10px;
-            text-align: left;
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: center;
+            font-family: "Courier New", monospace;
         }
 
-        /* TEXT MUKA DEPAN */
+        /* BARU: FONT HAND-DRAWN UNTUK NAMA & TEKS SEBELAH KANAN */
         .hero-text {
             flex: 1.5;
             min-width: 350px;
         }
-        .cmd-line {
-            color: #2ea44f;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
         .hero-text h1 {
-            font-size: 3rem;
+            font-family: 'Architects Daughter', cursive; /* FONT HAND-DRAWN */
+            font-size: 2.8rem;
             color: #1a1a1a;
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 15px;
         }
         .hero-text h1 span {
@@ -153,7 +144,7 @@
             padding: 12px 24px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 4px;
+            border-radius: 6px;
         }
         .btn-outline {
             border: 1px solid #1a1a1a;
@@ -161,7 +152,7 @@
             padding: 12px 24px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 4px;
+            border-radius: 6px;
         }
         .btn-green:hover { background-color: #24823e; }
         .btn-outline:hover { background-color: #f0f0f0; }
@@ -214,18 +205,20 @@
             margin-top: 20px;
         }
 
-        /* FOOTER (NAMA, STATUS, TEMPAT TINGGAL SEBIJI MACAM BAWAH GAMBAR NS2) */
+        /* BARU: FOOTER DENGAN FONT IRREGULAR & MAKLUMAT TERKINI */
         footer {
             background-color: #1a1a1a;
             color: #ffffff;
-            padding: 15px 20px;
-            font-size: 0.85rem;
+            padding: 20px;
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            border-top: 1px solid #2ea44f;
+            border-top: 2px solid #2ea44f;
+            font-family: 'Permanent Marker', cursive; /* FONT IRREGULAR */
+            font-size: 1.05rem;
+            letter-spacing: 1px;
         }
         .footer-content {
             max-width: 1200px;
@@ -234,7 +227,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 25px; /* Menambah jarak antara elemen footer */
         }
         .footer-left {
             display: flex;
@@ -242,8 +235,8 @@
             gap: 15px;
         }
         .dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background-color: #2ea44f;
             border-radius: 50%;
             display: inline-block;
@@ -265,20 +258,20 @@
         </div>
     </nav>
 
-    <!-- MUKA DEPAN TERBALIK (HERO SECTION) -->
+    <!-- MUKA DEPAN (HERO SECTION) -->
     <div class="hero-container">
-        <!-- Kotak Gambar Kiri -->
+        <!-- GAMBAR DI SEBELAH KIRI DENGAN FRAME BARU -->
         <div class="profile-card">
-            <div class="image-frame">
-                <!-- Jika Danish ada gambar sendiri, tukar code bawah ni jadi <img src="gambar.jpg"> -->
+            <div class="image-frame-new">
                 <div class="profile-img-placeholder">[ PHOTO PLACEHOLDER ]</div>
-                <div class="status-tag">// status: open_to_opportunities</div>
+                <!-- BARU: TEKS GREETING DI BAWAH GAMBAR -->
+                <div class="greeting-tag">Hi, Danish Danial Is Here</div>
             </div>
         </div>
 
-        <!-- Teks Kanan -->
+        <!-- TEKS DI SEBELAH KANAN (DENGAN NAMA FONT HAND-DRAWN) -->
         <div class="hero-text">
-            <div class="cmd-line">root@portfolio:~$\ whoami</div>
+            <!-- Teks root@portfolio... telah dibuang sepenuhnya di sini -->
             <h1>MUHAMMAD DANISH DANIAL<br><span>BIN MOHD NORDIN</span></h1>
             <p>Bachelor of Computer Science (Computer Network Security) with Honours<br>
                Universiti Sultan Zainal Abidin · UniSZA</p>
@@ -293,7 +286,7 @@
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <p>I am an IT / Computer Science student at UniSZA with a specialized focus on combining software security principles with hands-on hardware systems. My academic passion lies in leveraging Artificial Intelligence and Computer Vision to architect reliable, real-world access control solutions[cite: 1].</p>
+            <p>I am an IT / Computer Science student at UniSZA with a specialized focus on combining software security principles with hands-on hardware systems[cite: 1]. My academic passion lies in leveraging Artificial Intelligence and Computer Vision to architect reliable, real-world access control solutions[cite: 1].</p>
         </section>
 
         <section id="career-exploration">
@@ -353,19 +346,19 @@
         </section>
     </main>
 
-    <!-- FOOTER PALING BAWAH (SEBIJI MACAM NS2.PNG) -->
+    <!-- FOOTER PALING BAWAH (FONT IRREGULAR + JARAK + MAKLUMAT TERKINI) -->
     <footer>
         <div class="footer-content">
             <div class="footer-left">
-                <span class="dot"></span> AVAILABLE FOR OPPORTUNITIES
+                <span class="dot"></span> AVAILABLE FOR ANYTHING
             </div>
-            <div>JERTEH, TERENGGANU, MALAYSIA</div>
-            <div>CGPA 3.XX // UNISZA</div>
+            <div>KUALA TERENGGANU, TERENGGANU, MALAYSIA</div>
+            <div>CGPA 3.03 &nbsp;//&nbsp; UNISZA</div>
         </div>
     </footer>
 
-    <!-- Sikit ruang tambahan di bawah supaya footer tak tutup content utama -->
-    <div style="height: 60px;"></div>
+    <!-- Sikit ruang tambahan di bawah supaya footer tak menutup content utama -->
+    <div style="height: 90px;"></div>
 
 </body>
 </html>
