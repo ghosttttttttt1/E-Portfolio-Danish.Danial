@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Danish Danial | Career Path</title>
+    <title>Muhammad Danish Danial | Portfolio Muka Depan</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,23 +13,40 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: #f7f9fc; color: #1a1a1a; height: 100vh; overflow: hidden; position: relative; }
+        
         header { width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; z-index: 1000; background-color: #f7f9fc; }
         .nav-links { display: flex; gap: 25px; }
         .nav-links a { text-decoration: none; color: #777; font-weight: normal; font-size: 0.95rem; font-family: -apple-system, sans-serif; }
         .nav-links a.active-main { color: #2ea44f; font-weight: bold; }
         
-        /* LOGO KANAN ATAS DENGAN ANIMASI TITIK HIDUP */
         .logo { font-family: -apple-system, sans-serif; font-weight: bold; font-size: 1.15rem; color: #1a1a1a; display: flex; align-items: center; }
         .dots::after { content: ''; animation: blinkDots 1.5s infinite steps(4, start); }
         @keyframes blinkDots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } 100% { content: ''; } }
 
-        .sub-nav-container { width: 100%; display: flex; justify-content: center; position: fixed; top: 70px; left: 0; z-index: 999; }
+        /* MEMASTIKAN MENU ATAS BERADA DI LAPISAN PALING ATAS UNTUK BOLEH DIKLIK */
+        .sub-nav-container { width: 100%; display: flex; justify-content: center; position: fixed; top: 70px; left: 0; z-index: 1001; }
         .top-nav { display: flex; gap: 20px; padding: 10px 0; }
-        .top-nav a { text-decoration: none; color: #333; font-weight: 500; font-family: -apple-system, sans-serif; font-size: 0.95rem; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+        .top-nav a { text-decoration: none; color: #333; font-weight: 500; font-family: -apple-system, sans-serif; font-size: 0.95rem; padding-bottom: 5px; border-bottom: 2px solid transparent; cursor: pointer; position: relative; z-index: 1002; }
+        .top-nav a:hover { color: #2ea44f; }
         .active-nav { color: #2ea44f !important; border-bottom: 2px solid #2ea44f !important; }
-        .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 50px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 100vh; }
-        .content-title { font-family: 'Space Mono', monospace; color: #2ea44f; font-size: 1.8rem; margin-bottom: 20px; }
-        .content-body { font-size: 1.05rem; color: #333; max-width: 800px; }
+
+        /* MENYESUAIKAN MARGIN SUPAYA TIDAK BERTINDIH DENGAN NAVIGASI */
+        .hero-container { max-width: 1200px; margin: 0 auto; padding: 120px 50px 0 50px; display: flex; justify-content: space-between; align-items: center; height: 100vh; }
+        .hero-text { flex: 1.2; }
+        .hero-text h1 { font-family: 'Architects Daughter', cursive; font-size: 2.8rem; color: #222; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero-text h1 span { color: #3ca35d; font-family: 'Permanent Marker', cursive; font-size: 2.6rem; letter-spacing: 1px; }
+        .hero-text p { font-size: 1.05rem; color: #222; margin-bottom: 12px; font-family: "Space Mono", monospace; }
+        .subtitle-unisza { font-size: 1.05rem; color: #222; margin-bottom: 20px !important; }
+        
+        .contact-consolidated { font-family: "Space Mono", monospace; font-size: 0.78rem; color: #444; display: flex; align-items: center; gap: 10px; margin-top: 5px; }
+        .contact-consolidated i { color: #3ca35d; font-size: 0.9rem; }
+
+        .profile-card { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .image-frame-glowing { padding: 12px; background: transparent; border-radius: 50%; box-shadow: 0 0 25px rgba(60, 163, 93, 0.25); border: 1px solid rgba(60, 163, 93, 0.15); margin-bottom: 15px; }
+        .profile-img-placeholder { width: 330px; height: 330px; background-color: #eaeaea; display: flex; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden; }
+        .profile-img-placeholder i { font-size: 10.5rem; color: #3ca35d; }
+        .greeting-text { font-family: "Space Mono", monospace; font-size: 1rem; color: #1a1a1a; font-weight: bold; margin-top: 5px; letter-spacing: 0.5px; }
+
         .next-page-btn { position: absolute; bottom: 45px; right: 40px; text-decoration: none; color: #333; background-color: #ffffff; padding: 6px 14px; border-radius: 4px; font-family: -apple-system, sans-serif; font-size: 0.85rem; display: flex; align-items: center; gap: 15px; border: 1px solid #ccc; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         footer { color: #444; padding: 15px 40px; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000; background-color: #f7f9fc; }
         .footer-content { width: 100%; display: flex; justify-content: flex-end; align-items: center; font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.5px; }
@@ -46,8 +63,9 @@
 
     <div class="sub-nav-container">
         <div class="top-nav">
-            <a href="index.html">1 Profile</a>
-            <a href="career-path.html" class="active-nav">2 Career Path</a>
+            <!-- DIUBAH KEPADA href="index.html" SUPAYA BOLEH DIKLIK DAN MEMANGGIL SEMULA HALAMAN INI -->
+            <a href="index.html" class="active-nav">1 Profile</a>
+            <a href="career-path.html">2 Career Path</a>
             <a href="skills.html">3 Skills</a>
             <a href="dev-plan.html">4 Dev Plan</a>
             <a href="evidence.html">5 Evidence</a>
@@ -56,13 +74,29 @@
     </div>
 
     <div class="hero-container">
-        <h2 class="content-title">MY CAREER PATH</h2>
-        <p class="content-body">
-            Di bahagian ini, Danish boleh masukkan isi atau perancangan kerjaya anda dalam bidang Keselamatan Rangkaian Komputer (Computer Network Security). Contohnya, sasaran untuk menjadi Network Security Engineer, Cyber Security Analyst, atau Penetration Tester.
-        </p>
+        <div class="hero-text">
+            <h1>MUHAMMAD DANISH<br>DANIAL<br><span>BIN MOHD NORDIN</span></h1>
+            <p>Bachelor of Computer Science (Computer Network Security) with Honours</p>
+            <p class="subtitle-unisza">Universiti Sultan Zainal Abidin &bull; UniSZA</p>
+            
+            <div class="contact-consolidated">
+                <i class="fas fa-envelope"></i> mhmmddnshdnial@gmail.com
+                <span>|</span>
+                <i class="fas fa-phone-alt"></i> 60128851411
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <div class="image-frame-glowing">
+                <div class="profile-img-placeholder">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="greeting-text">Hi, Danish Danial Is Here!</div>
+        </div>
     </div>
 
-    <a href="skills.html" class="next-page-btn">Next Page <i class="fas fa-arrow-right"></i></a>
+    <a href="career-path.html" class="next-page-btn">Next Page <i class="fas fa-arrow-right"></i></a>
 
     <footer>
         <div class="footer-content">
