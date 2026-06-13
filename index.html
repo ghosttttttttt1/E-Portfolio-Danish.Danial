@@ -5,217 +5,367 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Danish Danial | E-Portfolio</title>
     <style>
-        /* Gaya Modern & Bersih seperti GitHub Pages */
+        /* TEMA HIJAU PUTIH - TERMINAL STYLE */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: "Courier New", Courier, monospace; /* Font gaya terminal/hacker */
+            background-color: #ffffff;
+            color: #1a1a1a;
             line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px 40px 20px;
-            background-color: #f9f9f9;
-            scroll-behavior: smooth; /* Membuatkan kesan skrol yang lancar bila klik menu */
+            scroll-behavior: smooth;
         }
 
-        /* BAHAGIAN MENU NAVIGASI (Sticky Menu) */
+        /* NAVIGATION MENU (BOLEH TEKAN-TEKAN) */
         nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
-            background-color: #ffffff;
-            padding: 15px 0;
-            border-bottom: 2px solid #eaecef;
-            margin-bottom: 30px;
             z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        nav a {
-            text-decoration: none;
-            color: #0366d6;
+        .logo {
             font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: background 0.2s;
+            font-size: 1.4rem;
+            color: #1a1a1a;
         }
-        nav a:hover {
-            background-color: #f0f3f6;
-            color: #02428f;
+        .logo span {
+            color: #2ea44f; /* Warna Hijau */
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #666666;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+        .nav-links a span {
+            color: #2ea44f;
+            margin-right: 4px;
+        }
+        .nav-links a:hover {
+            color: #2ea44f;
         }
 
-        header {
+        /* HERO SECTION (MUKA DEPAN SEBIJI MACAM IMAGE) */
+        .hero-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+
+        /* KOTAK GAMBAR PROFILE */
+        .profile-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            position: relative;
+        }
+        .image-frame {
+            border: 1px solid #ccc;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 4px;
             text-align: center;
-            padding: 40px 0 20px 0;
         }
-        h1 { font-size: 2.3rem; color: #24292e; margin-bottom: 5px; }
-        .subtitle { font-size: 1.2rem; color: #6a737d; font-style: italic; margin-top: 0; }
-        
-        /* Gaya untuk setiap Section */
+        /* Border penjuru hiasan (Hacker style) warna hijau */
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px;
+            width: 20px; height: 20px;
+            border-top: 3px solid #2ea44f;
+            border-left: 3px solid #2ea44f;
+        }
+        .image-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 25px; right: -5px;
+            width: 20px; height: 20px;
+            border-bottom: 3px solid #2ea44f;
+            border-right: 3px solid #2ea44f;
+        }
+        .profile-img-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            border-radius: 4px;
+        }
+        .status-tag {
+            font-size: 0.9rem;
+            color: #2ea44f;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        /* TEXT MUKA DEPAN */
+        .hero-text {
+            flex: 1.5;
+            min-width: 350px;
+        }
+        .cmd-line {
+            color: #2ea44f;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .hero-text h1 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+        .hero-text h1 span {
+            color: #2ea44f;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #555555;
+            margin-bottom: 25px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .btn-green {
+            background-color: #2ea44f;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .btn-outline {
+            border: 1px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .btn-green:hover { background-color: #24823e; }
+        .btn-outline:hover { background-color: #f0f0f0; }
+
+        /* GAYA UNTUK BAHAGIAN ISI KANDUNGAN */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
         section {
-            background: #fff;
-            border: 1px solid #e1e4e8;
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
             border-radius: 6px;
-            padding: 30px;
-            margin-bottom: 30px;
-            /* Memberi ruang di atas supaya menu tidak menutup tajuk semasa skrol */
-            scroll-margin-top: 80px; 
+            padding: 40px;
+            margin-bottom: 40px;
+            scroll-margin-top: 90px;
         }
-        h2 { font-size: 1.8rem; color: #0366d6; border-bottom: 1px solid #eaecef; padding-bottom: 8px; margin-top: 0; }
-        h3 { font-size: 1.3rem; color: #24292e; }
-        p, li { font-size: 1.1rem; color: #586069; }
-        ul { padding-left: 20px; }
-        
-        /* Gaya Jadual */
+        section h2 {
+            font-size: 1.8rem;
+            color: #2ea44f;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        ul { padding-left: 20px; color: #444; }
+        li { margin-bottom: 10px; font-size: 1.05rem; }
+
+        /* JADUAL */
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            background: #fff;
         }
         th, td {
-            border: 1px solid #dfe2e5;
+            border: 1px solid #e0e0e0;
             padding: 12px;
             text-align: left;
         }
-        th { background-color: #f6f8fa; }
+        th { background-color: #f0f0f0; color: #2ea44f; }
 
-        /* Kotak Gambar Projek */
-        .image-container {
-            display: flex;
-            gap: 20px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .project-img-box {
-            flex: 1;
-            min-width: 280px;
-        }
-        .project-img {
-            width: 100%;
-            height: auto;
-            max-height: 250px;
-            object-fit: cover;
-            border: 1px solid #dfe2e5;
+        /* KOTAK EVIDENCE */
+        .evidence-box {
+            background: #ffffff;
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
             border-radius: 6px;
+            color: #666;
+            margin-top: 20px;
         }
-        .img-caption {
-            font-size: 0.95rem;
-            color: #586069;
-            font-style: italic;
-            margin-top: 5px;
+
+        /* FOOTER (NAMA, STATUS, TEMPAT TINGGAL SEBIJI MACAM BAWAH GAMBAR NS2) */
+        footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-size: 0.85rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-top: 1px solid #2ea44f;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ea44f;
+            border-radius: 50%;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATION MENU (Boleh tekan-tekan melompat ke section) -->
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#career-exploration">1. Career Exploration</a>
-        <a href="#skills-assessment">2. Skills Assessment</a>
-        <a href="#career-plan">3. Career Plan</a>
-        <a href="#evidence">4. Evidence of Learning</a>
-        <a href="#reflection">5. Personal Reflection</a>
+        <div class="logo">DD<span>_</span></div>
+        <div class="nav-links">
+            <a href="#about"><span>01</span>Profile</a>
+            <a href="#career-exploration"><span>02</span>Career Path</a>
+            <a href="#skills-assessment"><span>03</span>Skills</a>
+            <a href="#career-plan"><span>04</span>Dev Plan</a>
+            <a href="#evidence"><span>05</span>Evidence</a>
+            <a href="#reflection"><span>06</span>Reflection</a>
+        </div>
     </nav>
 
-    <header>
-        <h1>Muhammad Danish Danial Bin Mohd Nordin</h1>
-        <p class="subtitle">Individual E-Portfolio | CSA30203 Special Topics in Computer Network Security</p>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am an IT / Computer Science student at UniSZA with a specialized focus on combining software security principles with hands-on hardware systems. My academic passion lies in leveraging Artificial Intelligence and Computer Vision to architect reliable, real-world access control solutions.</p>
-    </section>
-
-    <section id="career-exploration">
-        <h2>1. Career Exploration</h2>
-        <p><strong>Target Role:</strong> Software Developer (Security-focused)</p>
-        <ul>
-            <li><strong>Job Responsibilities:</strong> Engineering, deploying, and testing robust software solutions; embedding multi-factor or biometric authentication mechanisms (such as secure facial recognition layers); running code testing cycles to locate system vulnerabilities; and ensuring seamless communication between backend logic and external physical devices.</li>
-            <li><strong>Required Skills:</strong> Mastery of high-level programming structures (Python, C++), security practices surrounding APIs, core understanding of cryptography, and working with secure OS configurations like Linux.</li>
-            <li><strong>Relevance to Modern Cybersecurity:</strong> In today’s interconnected IoT climate, network defenses are only half the battle. Physical security infrastructure—like smart facilities and building locks—is driven entirely by software applications. If the programming governing a security camera or electronic lock contains vulnerabilities, the physical parameters can be compromised instantly. Security-focused developers systematically protect these access points.</li>
-        </ul>
-    </section>
-
-    <section id="skills-assessment">
-        <h2>2. Personal Skills Assessment</h2>
-        <p>An honest evaluation comparing my active capabilities against industry expectations:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Industry Requirements</th>
-                    <th>My Current Capabilities</th>
-                    <th>Action Plan to Bridge Gaps</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Secure Application Design</strong></td>
-                    <td>Intermediate experience writing functional logic using Python.</td>
-                    <td>Reviewing OWASP Top 10 guidelines to actively mitigate system level bugs and exploit loops.</td>
-                </tr>
-                <tr>
-                    <td><strong>Biometric & System Integration</strong></td>
-                    <td>Hands-on experience deploying computer vision models alongside physical electronics.</td>
-                    <td>Continuing to test diverse structural facial tracking approaches to elevate overall processing latency and accuracy.</td>
-                </tr>
-                <tr>
-                    <td><strong>Network/Traffic Defense</strong></td>
-                    <td>Familiar with basic routing parameters, subnets, and standard configurations.</td>
-                    <td>Committing to practical network capture tools like <strong>Wireshark</strong> over the upcoming semesters.</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section id="career-plan">
-        <h2>3. Career Development Plan</h2>
-        <ul>
-            <li><strong>Short-Term Plan (1-2 Years):</strong> Complete my undergraduate degree at UniSZA and step into a structural development or IT Support role featuring security functions. Concurrently, prepare for foundational professional certifications such as <strong>CompTIA Security+</strong> or <strong>Cisco CCNA</strong>.</li>
-            <li><strong>Long-Term Plan (5 Years):</strong> Advance to a Senior Systems Security Architect role, acting as the lead engineer overseeing integrated software-hardware security implementations. Work toward high-tier industry benchmarks like the <strong>CISSP</strong> credential.</li>
-        </ul>
-    </section>
-
-    <section id="evidence">
-        <h2>4. Evidence of Learning</h2>
-        <h3>Featured Project: Face Recognition Door Lock System</h3>
-        <p>A smart, automated access security prototype built using Python and OpenCV. By using a Haar Cascade Classifier and an LBPH algorithm, the application detects and verifies authorized users in real-time. Once validated, an instruction path routes to an Arduino microcontroller, manipulating a relay module to instantly operate a 12V physical solenoid lock. Unexpected parameters trigger integrated audio alarms.</p>
-        
-        <div class="image-container">
-            <div class="project-img-box" style="background: #f6f8fa; border: 2px dashed #959da5; padding: 40px 20px; text-align: center; border-radius: 6px; color: #586069;">
-                <span style="font-size: 1.5rem;">📷</span><br>
-                <strong>[ Figure 1: Hardware Setup Screenshot ]</strong>
-                <p style="font-size: 0.9rem; margin-top: 5px;">Physical hardware integration containing the Arduino microcontroller, relay module, and solenoid lock.</p>
-            </div>
-            <div class="project-img-box" style="background: #f6f8fa; border: 2px dashed #959da5; padding: 40px 20px; text-align: center; border-radius: 6px; color: #586069;">
-                <span style="font-size: 1.5rem;">💻</span><br>
-                <strong>[ Figure 2: Software UI Screenshot ]</strong>
-                <p style="font-size: 0.9rem; margin-top: 5px;">Real-time Computer Vision script execution backend managed and compiled via VS Code.</p>
+    <!-- MUKA DEPAN TERBALIK (HERO SECTION) -->
+    <div class="hero-container">
+        <!-- Kotak Gambar Kiri -->
+        <div class="profile-card">
+            <div class="image-frame">
+                <!-- Jika Danish ada gambar sendiri, tukar code bawah ni jadi <img src="gambar.jpg"> -->
+                <div class="profile-img-placeholder">[ PHOTO PLACEHOLDER ]</div>
+                <div class="status-tag">// status: open_to_opportunities</div>
             </div>
         </div>
 
-        <!-- Tambahan Butang Projek Link ke GitHub (Bagi nampak lebih gempak & profesional) -->
-        <div style="text-align: center; margin-top: 25px;">
-            <a href="https://github.com/" target="_blank" style="display: inline-block; background-color: #2ea44f; color: white; text-decoration: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; transition: background 0.2s;">View Project Repository on GitHub</a>
-        </div>
-            <div class="project-img-box">
-                <img src="code.jpg" alt="Source Code Screenshot Missing" class="project-img" onerror="this.style.opacity='0.5';">
-                <div class="img-caption"><strong>Figure 2:</strong> Real-time Computer Vision script execution backend managed via VS Code.</div>
+        <!-- Teks Kanan -->
+        <div class="hero-text">
+            <div class="cmd-line">root@portfolio:~$\ whoami</div>
+            <h1>MUHAMMAD DANISH DANIAL<br><span>BIN MOHD NORDIN</span></h1>
+            <p>Bachelor of Computer Science (Computer Network Security) with Honours<br>
+               Universiti Sultan Zainal Abidin · UniSZA</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn-green">Open Profile</a>
+                <a href="#evidence" class="btn-outline">View Evidence</a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="reflection">
-        <h2>5. Personal Reflection</h2>
-        <p><strong>Target Organization:</strong> CyberSecurity Malaysia (or alternative Tech Integrators)</p>
-        <p><strong>Why this company?</strong> Joining a leading entity at the forefront of setting infrastructure benchmarks lets me apply practical skills to high-stakes situations that impact national safety protocols.</p>
-        <p><strong>What unique value do I provide?</strong> Most entry applicants stay strictly bounded by software parameters or web networks. My engineering balance enables me to fluidly bridge the gap between AI capabilities (Computer Vision processing) and real-world execution components (Microcontrollers/Access hardware), allowing me to design secure systems from end to end.</p>
-        <p><strong>Strengths & Weaknesses:</strong> My distinct strength lies in my practical troubleshooting agility when integrating separate software-hardware spaces. My weakness can be extreme hyper-focusing on isolated fragments of code, which I proactively offset by implementing strict, time-blocked tracking metrics to manage delivery cycles.</p>
-    </section>
+    <!-- ISI KANDUNGAN PORTFOLIO -->
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am an IT / Computer Science student at UniSZA with a specialized focus on combining software security principles with hands-on hardware systems. My academic passion lies in leveraging Artificial Intelligence and Computer Vision to architect reliable, real-world access control solutions[cite: 1].</p>
+        </section>
+
+        <section id="career-exploration">
+            <h2>02. Career Exploration</h2>
+            <p><strong>Target Role:</strong> Software Developer (Security-focused)[cite: 1]</p><br>
+            <ul>
+                <li><strong>Job Responsibilities:</strong> Engineering, deploying, and testing robust software solutions; embedding multi-factor or biometric authentication mechanisms (such as secure facial recognition layers); running code testing cycles to locate system vulnerabilities; and ensuring seamless communication between backend logic and external physical devices[cite: 1].</li>
+                <li><strong>Required Skills:</strong> Mastery of high-level programming structures (Python, C++), security practices surrounding APIs, core understanding of cryptography, and working with secure OS configurations like Linux[cite: 1].</li>
+            </ul>
+        </section>
+
+        <section id="skills-assessment">
+            <h2>03. Personal Skills Assessment</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Industry Requirements</th>
+                        <th>My Current Capabilities</th>
+                        <th>Action Plan to Bridge Gaps[cite: 1]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Secure Application Design</strong></td>
+                        <td>Intermediate experience writing functional logic using Python[cite: 1].</td>
+                        <td>Reviewing OWASP Top 10 guidelines to actively mitigate system level bugs and exploit loops.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biometric & System Integration</strong></td>
+                        <td>Hands-on experience deploying computer vision models alongside physical electronics.</td>
+                        <td>Continuing to test diverse structural facial tracking approaches to elevate overall processing latency and accuracy.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="career-plan">
+            <h2>04. Career Development Plan</h2>
+            <ul>
+                <li><strong>Short-Term Plan (1-2 Years):</strong> Complete my undergraduate degree at UniSZA and step into a structural development or IT Support role featuring security functions[cite: 1]. Concurrently, prepare for foundational professional certifications such as <strong>CompTIA Security+</strong> or <strong>Cisco CCNA</strong>[cite: 1].</li>
+            </ul>
+        </section>
+
+        <section id="evidence">
+            <h2>05. Evidence of Learning</h2>
+            <h3>Featured Project: Face Recognition Door Lock System</h3>
+            <div class="evidence-box">
+                <strong>[ 📷 Figure 1 & 💻 Figure 2 Project Screenshots Placeholder ]</strong>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Smart computer vision prototype integrating OpenCV facial algorithms with Arduino hardware control components[cite: 1].</p>
+            </div>
+        </section>
+
+        <section id="reflection">
+            <h2>06. Personal Reflection</h2>
+            <p><strong>Target Organization:</strong> CyberSecurity Malaysia (or alternative Tech Integrators)[cite: 1]</p><br>
+            <p><strong>What unique value do I provide?</strong> Most entry applicants stay strictly bounded by software parameters or web networks. My engineering balance enables me to fluidly bridge the gap between AI capabilities (Computer Vision processing) and real-world execution components (Microcontrollers/Access hardware), allowing me to design secure systems from end to end[cite: 1].</p>
+        </section>
+    </main>
+
+    <!-- FOOTER PALING BAWAH (SEBIJI MACAM NS2.PNG) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="dot"></span> AVAILABLE FOR OPPORTUNITIES
+            </div>
+            <div>JERTEH, TERENGGANU, MALAYSIA</div>
+            <div>CGPA 3.XX // UNISZA</div>
+        </div>
+    </footer>
+
+    <!-- Sikit ruang tambahan di bawah supaya footer tak tutup content utama -->
+    <div style="height: 60px;"></div>
 
 </body>
 </html>
