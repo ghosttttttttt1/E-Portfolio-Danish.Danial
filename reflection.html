@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Danish Danial | Portfolio Muka Depan</title>
+    <title>Muhammad Danish Danial | Reflection</title>
     
     <!-- MEMANGGIL SUMBER EKSTERNIF UNTUK FONT & IKON SENARAI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 
     <style>
         /* ==========================================================================
-           1. GAYA ASAS & SUSUNAN ELEMEN (PROFILE CONTAINER)
+           1. GAYA ASAS & SUSUNAN ELEMEN
            ========================================================================== */
         * { 
             box-sizing: border-box; 
@@ -31,7 +31,7 @@
         }
 
         /* ==========================================================================
-           2. NAVIGASI MENU UTAMA (TOP HEADER & NUMBERED MULTI-PAGE NAV)
+           2. NAVIGASI MENU UTAMA (TOP HEADER)
            ========================================================================== */
         header {
             width: 100%;
@@ -57,14 +57,8 @@
             font-weight: normal;
             font-size: 0.95rem;
             font-family: -apple-system, sans-serif;
-            transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: #2ea44f;
-        }
-
-        /* Menu Utama Portfolio Berwarna Hijau */
         .nav-links a.active-main {
             color: #2ea44f;
             font-weight: bold;
@@ -77,7 +71,7 @@
             color: #1a1a1a; 
         }
 
-        /* Navigasi Bertombol Nombor Di Bahagian Tengah (Inspirasi Kawan Tanpa Skrol) */
+        /* Navigasi Bertombol Nombor Di Bahagian Tengah */
         .sub-nav-container {
             width: 100%;
             display: flex;
@@ -104,117 +98,41 @@
             border-bottom: 2px solid transparent;
         }
 
-        .top-nav a:hover { 
-            color: #2ea44f; 
-        }
-
-        /* Garis bawah hijau bagi menandakan halaman aktif */
+        /* Garis penunjuk halaman aktif berwarna hijau */
         .active-nav { 
             color: #2ea44f !important;
             border-bottom: 2px solid #2ea44f !important; 
         }
 
         /* ==========================================================================
-           3. KANDUNGAN PROFIL (HERO CONTAINER / TEXT & PHOTO PLACEHOLDER)
+           3. KANDUNGAN HALAMAN (HERO CONTAINER FOR CONTENT)
            ========================================================================== */
         .hero-container { 
             max-width: 1200px; 
             margin: 0 auto;
             padding: 0 50px;
             display: flex; 
-            justify-content: space-between;
-            align-items: center; 
-            height: 100vh; /* Memastikan elemen berada di tengah-tengah skrin */
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; 
+            height: 100vh; 
         }
 
-        /* Reka bentuk tulisan teks sebelah kiri */
-        .hero-text { 
-            flex: 1.2; 
+        .content-title {
+            font-family: 'Space Mono', monospace;
+            color: #2ea44f;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
 
-        .hero-text h1 { 
-            font-family: 'Architects Daughter', cursive; 
-            font-size: 2.8rem; 
-            color: #222; 
-            line-height: 1.1; 
-            margin-bottom: 20px; 
-            letter-spacing: -1px;
-        }
-
-        /* Penukaran nama berbini mohd nordin kepada warna hijau marker */
-        .hero-text h1 span { 
-            color: #3ca35d; 
-            font-family: 'Permanent Marker', cursive; 
-            font-size: 2.6rem;
-            letter-spacing: 1px;
-        }
-
-        .hero-text p { 
-            font-size: 1.05rem; 
-            color: #222; 
-            margin-bottom: 12px; 
-            font-family: "Space Mono", monospace; 
-        }
-
-        .subtitle-unisza { 
-            font-size: 1.05rem; 
-            color: #222; 
-            margin-bottom: 20px !important; 
-        }
-
-        /* Bahagian baris tunggal maklumat hubungan (Contact Consolidated) */
-        .contact-consolidated { 
-            font-family: "Space Mono", monospace; 
-            font-size: 0.78rem; 
-            color: #444; 
-            display: flex; 
-            align-items: center; 
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .contact-consolidated i { 
-            color: #3ca35d; 
-            font-size: 0.9rem;
-        }
-
-        /* Reka bentuk komponen bulatan gambar sebelah kanan */
-        .profile-card { 
-            flex: 1; 
-            display: flex; 
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        /* Frame dual-ring bercahaya hijau pudar */
-        .image-frame-glowing { 
-            padding: 12px; 
-            background: transparent; 
-            border-radius: 50%; 
-            box-shadow: 0 0 25px rgba(60, 163, 93, 0.25); 
-            border: 1px solid rgba(60, 163, 93, 0.15);
-        }
-
-        /* Bulatan utama pemegang gambar portfolio */
-        .profile-img-placeholder { 
-            width: 330px; 
-            height: 330px; 
-            background-color: #eaeaea; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border-radius: 50%; 
-            overflow: hidden; 
-        }
-
-        /* Ikon user berwarna hijau di dalam bulatan */
-        .profile-img-placeholder i { 
-            font-size: 10.5rem; 
-            color: #3ca35d; 
+        .content-body {
+            font-size: 1.05rem;
+            color: #333;
+            max-width: 800px;
         }
 
         /* ==========================================================================
-           4. TOMBOL NAVIGASI HALAMAN (NEXT PAGE BUTTON)
+           4. TOMBOL NAVIGASI HALAMAN (BACK TO PROFILE BUTTON)
            ========================================================================== */
         .next-page-btn { 
             position: absolute; 
@@ -232,11 +150,6 @@
             gap: 15px; 
             border: 1px solid #ccc;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: background-color 0.2s ease;
-        }
-
-        .next-page-btn:hover { 
-            background-color: #f6f8fa; 
         }
 
         /* ==========================================================================
@@ -266,7 +179,7 @@
 </head>
 <body>
 
-    <!-- NAVIGASI ATAS: MENU UTAMA & LOGO -->
+    <!-- NAVIGASI ATAS -->
     <header>
         <div class="nav-links">
             <a href="#">HOME</a>
@@ -276,51 +189,31 @@
         <div class="logo">Danish Danial...</div>
     </header>
 
-    <!-- SUB-NAVIGASI: SISTEM MENU NOMBOR BERULANG (E-PORTFOLIO TUGASAN) -->
+    <!-- SUB-NAVIGASI: DI SINI PERUBAHAN AKTIF NOMBOR DIALIKKAN -->
     <div class="sub-nav-container">
         <div class="top-nav">
-            <a href="index.html" class="active-nav">1 Profile</a>
+            <!-- class="active-nav" kini dipindahkan secara tepat pada menu nombor 6 -->
+            <a href="index.html">1 Profile</a>
             <a href="career-path.html">2 Career Path</a>
             <a href="skills.html">3 Skills</a>
             <a href="dev-plan.html">4 Dev Plan</a>
             <a href="evidence.html">5 Evidence</a>
-            <a href="reflection.html">6 Reflection</a>
+            <a href="reflection.html" class="active-nav">6 Reflection</a>
         </div>
     </div>
 
-    <!-- UTAMA: STRUKTUR KANDUNGAN PROFIL MUKA DEPAN -->
+    <!-- KANDUNGAN UNTUK HALAMAN REFLECTION -->
     <div class="hero-container">
-        
-        <!-- BLOK TEKS MAKLUMAT DIRI (SEBELAH KIRI) -->
-        <div class="hero-text">
-            <h1>MUHAMMAD DANISH<br>DANIAL<br><span>BIN MOHD NORDIN</span></h1>
-            <p>Bachelor of Computer Science (Computer Network Security) with Honours</p>
-            <p class="subtitle-unisza">Universiti Sultan Zainal Abidin &bull; UniSZA</p>
-            
-            <!-- SATU BARIS BERSIH UNTUK EMEL & TELEFON TANPA RALAT (CONTACT CONSOLIDATED) -->
-            <div class="contact-consolidated">
-                <i class="fas fa-envelope"></i> mhmmddnshdnial@gmail.com
-                <span>|</span>
-                <i class="fas fa-phone-alt"></i> 60128851411
-            </div>
-        </div>
-
-        <!-- BLOK GAMBAR FRAME GLOWING (SEBELAH KANAN) -->
-        <div class="profile-card">
-            <div class="image-frame-glowing">
-                <div class="profile-img-placeholder">
-                    <!-- Placeholder Ikon Pengguna Berwarna Hijau -->
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-        </div>
-
+        <h2 class="content-title">MY REFLECTION</h2>
+        <p class="content-body">
+            Di bahagian ini, Danish boleh menulis refleksi diri atau kesimpulan sepanjang proses pembelajaran dan pembinaan portfolio ini. Anda boleh kongsikan impak subjek pengajian, cabaran yang dihadapi semasa mengendalikan sistem keselamatan rangkaian, dan bagaimana pengalaman tersebut mematangkan persediaan anda sebelum melangkah ke industri sebenar.
+        </p>
     </div>
 
-    <!-- TOMBOL NAVIGASI HALAMAN KE SUB-MENU SETERUSNYA -->
-    <a href="career-path.html" class="next-page-btn">Next Page <i class="fas fa-arrow-right"></i></a>
+    <!-- PENGUBAHSUAIAN TOMBOL NEXT: Diubah untuk kembali semula ke halaman 1 (index.html) -->
+    <a href="index.html" class="next-page-btn">Back to Profile <i class="fas fa-home"></i></a>
 
-    <!-- FOOTER MAKLUMAT KECIL DI SUDUT BAWAH -->
+    <!-- FOOTER MAKLUMAT KECIL KEKAL SAMA -->
     <footer>
         <div class="footer-content">
             KUALA TERENGGANU, TERENGGANU, MALAYSIA | CGPA 3.03 | UNISZA
