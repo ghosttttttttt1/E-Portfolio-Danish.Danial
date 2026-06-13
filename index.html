@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Danish Danial | E-Portfolio</title>
+    <style>
+        /* Gaya Modern & Bersih seperti GitHub Pages */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth; /* Membuatkan kesan skrol yang lancar bila klik menu */
+        }
+
+        /* BAHAGIAN MENU NAVIGASI (Sticky Menu) */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            padding: 15px 0;
+            border-bottom: 2px solid #eaecef;
+            margin-bottom: 30px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0366d6;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        nav a:hover {
+            background-color: #f0f3f6;
+            color: #02428f;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 20px 0;
+        }
+        h1 { font-size: 2.3rem; color: #24292e; margin-bottom: 5px; }
+        .subtitle { font-size: 1.2rem; color: #6a737d; font-style: italic; margin-top: 0; }
+        
+        /* Gaya untuk setiap Section */
+        section {
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 30px;
+            /* Memberi ruang di atas supaya menu tidak menutup tajuk semasa skrol */
+            scroll-margin-top: 80px; 
+        }
+        h2 { font-size: 1.8rem; color: #0366d6; border-bottom: 1px solid #eaecef; padding-bottom: 8px; margin-top: 0; }
+        h3 { font-size: 1.3rem; color: #24292e; }
+        p, li { font-size: 1.1rem; color: #586069; }
+        ul { padding-left: 20px; }
+        
+        /* Gaya Jadual */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #dfe2e5;
+            padding: 12px;
+            text-align: left;
+        }
+        th { background-color: #f6f8fa; }
+
+        /* Kotak Gambar Projek */
+        .image-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .project-img-box {
+            flex: 1;
+            min-width: 280px;
+        }
+        .project-img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
+            border: 1px solid #dfe2e5;
+            border-radius: 6px;
+        }
+        .img-caption {
+            font-size: 0.95rem;
+            color: #586069;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#career-exploration">1. Career Exploration</a>
+        <a href="#skills-assessment">2. Skills Assessment</a>
+        <a href="#career-plan">3. Career Plan</a>
+        <a href="#evidence">4. Evidence of Learning</a>
+        <a href="#reflection">5. Personal Reflection</a>
+    </nav>
+
+    <header>
+        <h1>Muhammad Danish Danial Bin Mohd Nordin</h1>
+        <p class="subtitle">Individual E-Portfolio | CSA30203 Special Topics in Computer Network Security</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am an IT / Computer Science student at UniSZA with a specialized focus on combining software security principles with hands-on hardware systems. My academic passion lies in leveraging Artificial Intelligence and Computer Vision to architect reliable, real-world access control solutions.</p>
+    </section>
+
+    <section id="career-exploration">
+        <h2>1. Career Exploration</h2>
+        <p><strong>Target Role:</strong> Software Developer (Security-focused)</p>
+        <ul>
+            <li><strong>Job Responsibilities:</strong> Engineering, deploying, and testing robust software solutions; embedding multi-factor or biometric authentication mechanisms (such as secure facial recognition layers); running code testing cycles to locate system vulnerabilities; and ensuring seamless communication between backend logic and external physical devices.</li>
+            <li><strong>Required Skills:</strong> Mastery of high-level programming structures (Python, C++), security practices surrounding APIs, core understanding of cryptography, and working with secure OS configurations like Linux.</li>
+            <li><strong>Relevance to Modern Cybersecurity:</strong> In today’s interconnected IoT climate, network defenses are only half the battle. Physical security infrastructure—like smart facilities and building locks—is driven entirely by software applications. If the programming governing a security camera or electronic lock contains vulnerabilities, the physical parameters can be compromised instantly. Security-focused developers systematically protect these access points.</li>
+        </ul>
+    </section>
+
+    <section id="skills-assessment">
+        <h2>2. Personal Skills Assessment</h2>
+        <p>An honest evaluation comparing my active capabilities against industry expectations:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Industry Requirements</th>
+                    <th>My Current Capabilities</th>
+                    <th>Action Plan to Bridge Gaps</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Secure Application Design</strong></td>
+                    <td>Intermediate experience writing functional logic using Python.</td>
+                    <td>Reviewing OWASP Top 10 guidelines to actively mitigate system level bugs and exploit loops.</td>
+                </tr>
+                <tr>
+                    <td><strong>Biometric & System Integration</strong></td>
+                    <td>Hands-on experience deploying computer vision models alongside physical electronics.</td>
+                    <td>Continuing to test diverse structural facial tracking approaches to elevate overall processing latency and accuracy.</td>
+                </tr>
+                <tr>
+                    <td><strong>Network/Traffic Defense</strong></td>
+                    <td>Familiar with basic routing parameters, subnets, and standard configurations.</td>
+                    <td>Committing to practical network capture tools like <strong>Wireshark</strong> over the upcoming semesters.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="career-plan">
+        <h2>3. Career Development Plan</h2>
+        <ul>
+            <li><strong>Short-Term Plan (1-2 Years):</strong> Complete my undergraduate degree at UniSZA and step into a structural development or IT Support role featuring security functions. Concurrently, prepare for foundational professional certifications such as <strong>CompTIA Security+</strong> or <strong>Cisco CCNA</strong>.</li>
+            <li><strong>Long-Term Plan (5 Years):</strong> Advance to a Senior Systems Security Architect role, acting as the lead engineer overseeing integrated software-hardware security implementations. Work toward high-tier industry benchmarks like the <strong>CISSP</strong> credential.</li>
+        </ul>
+    </section>
+
+    <section id="evidence">
+        <h2>4. Evidence of Learning</h2>
+        <h3>Featured Project: Face Recognition Door Lock System</h3>
+        <p>A smart, automated access security prototype built using Python and OpenCV. By using a Haar Cascade Classifier and an LBPH algorithm, the application detects and verifies authorized users in real-time. Once validated, an instruction path routes to an Arduino microcontroller, manipulating a relay module to instantly operate a 12V physical solenoid lock. Unexpected parameters trigger integrated audio alarms.</p>
+        
+        <div class="image-container">
+            <div class="project-img-box">
+                <img src="hardware.jpg" alt="Hardware Setup Missing" class="project-img" onerror="this.style.opacity='0.5';">
+                <div class="img-caption"><strong>Figure 1:</strong> The physical hardware integration including the Arduino, relay module, and solenoid lock.</div>
+            </div>
+            <div class="project-img-box">
+                <img src="code.jpg" alt="Source Code Screenshot Missing" class="project-img" onerror="this.style.opacity='0.5';">
+                <div class="img-caption"><strong>Figure 2:</strong> Real-time Computer Vision script execution backend managed via VS Code.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reflection">
+        <h2>5. Personal Reflection</h2>
+        <p><strong>Target Organization:</strong> CyberSecurity Malaysia (or alternative Tech Integrators)</p>
+        <p><strong>Why this company?</strong> Joining a leading entity at the forefront of setting infrastructure benchmarks lets me apply practical skills to high-stakes situations that impact national safety protocols.</p>
+        <p><strong>What unique value do I provide?</strong> Most entry applicants stay strictly bounded by software parameters or web networks. My engineering balance enables me to fluidly bridge the gap between AI capabilities (Computer Vision processing) and real-world execution components (Microcontrollers/Access hardware), allowing me to design secure systems from end to end.</p>
+        <p><strong>Strengths & Weaknesses:</strong> My distinct strength lies in my practical troubleshooting agility when integrating separate software-hardware spaces. My weakness can be extreme hyper-focusing on isolated fragments of code, which I proactively offset by implementing strict, time-blocked tracking metrics to manage delivery cycles.</p>
+    </section>
+
+</body>
+</html>
