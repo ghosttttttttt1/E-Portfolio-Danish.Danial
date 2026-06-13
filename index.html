@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Danish Danial | E-Portfolio</title>
     
-    <!-- MEMANGGIL GOOGLE FONTS UNTUK GAYA HAND-DRAWN & IRREGULAR -->
+    <!-- MEMANGGIL GOOGLE FONTS & ICONS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+ Daughter&family=Permanent+Marker&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* TEMA HIJAU PUTHIH BERSIH */
+        /* TEMA HIJAU PUTHIH MODEN - INSPIRASI NS3.PNG */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,109 +20,78 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #f7f9fc; /* Latar belakang cerah NS3.PNG */
             color: #1a1a1a;
             line-height: 1.6;
-            scroll-behavior: smooth;
+            overflow: hidden; /* Menghalang skrol utama */
+            height: 100vh;
         }
 
-        /* NAVIGATION MENU (BOLEH TEKAN-TEKAN) */
-        nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
+        /* BAHAGIAN KANDUNGAN UTAMA (HIDDEN SECARA DEFAULT) */
+        .page {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            padding: 40px;
+            position: absolute;
             top: 0;
-            z-index: 1000;
-            max-width: 1200px;
-            margin: 0 auto;
+            left: 0;
+            background-color: #f7f9fc;
         }
+        
+        /* PAPARKAN HALAMAN AKTIF */
+        .active-page {
+            display: block;
+        }
+
+        /* NAVIGATION MENU (TOP HEADER) */
+        nav {
+            background-color: transparent;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-end; /* Logo di kanan */
+            align-items: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        /* BARU: LOGO "Danish Danial..." BERKELIP-KELIP */
         .logo {
-            font-family: "Courier New", monospace;
+            font-family: "Space Mono", monospace;
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #1a1a1a;
+            animation: blink 1.5s infinite; /* Kesan berkelip */
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         .logo span {
             color: #2ea44f;
         }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #666666;
-            font-size: 0.95rem;
-            font-weight: bold;
-        }
-        .nav-links a span {
-            color: #2ea44f;
-            margin-right: 4px;
-        }
-        .nav-links a:hover {
-            color: #2ea44f;
-        }
 
-        /* HERO SECTION (SUSUNAN BARU) */
+        /* HOME PAGE / HERO SECTION (MUKA DEPAN) */
         .hero-container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 80px auto;
             display: flex;
             gap: 50px;
             align-items: center;
             padding: 40px 20px;
-            flex-wrap: wrap;
+            flex-wrap: wrap-reverse; /* Teks kiri, gambar kanan */
         }
 
-        /* BARU: GAMBAR DI SEBELAH KIRI DENGAN FRAME MINIMALIS BARU */
-        .profile-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 380px;
-        }
-        .image-frame-new {
-            border: 4px solid #1a1a1a;
-            border-top: 4px solid #2ea44f; /* Sentuhan warna hijau di atas frame */
-            padding: 10px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 5px 5px 0px #2ea44f; /* Bayang gaya pop-art hijau */
-        }
-        .profile-img-placeholder {
-            width: 100%;
-            height: 400px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #888;
-            border-radius: 8px;
-            font-family: "Courier New", monospace;
-        }
-        
-        /* BARU: "Hi, Danish Danial Is Here" TEXT */
-        .greeting-tag {
-            font-size: 1.1rem;
-            color: #2ea44f;
-            font-weight: bold;
-            margin-top: 15px;
-            text-align: center;
-            font-family: "Courier New", monospace;
-        }
-
-        /* BARU: FONT HAND-DRAWN UNTUK NAMA & TEKS SEBELAH KANAN */
+        /* TEXT DI SEBELAH KIRI (FONT HAND-DRAWN) */
         .hero-text {
             flex: 1.5;
             min-width: 350px;
         }
         .hero-text h1 {
-            font-family: 'Architects Daughter', cursive; /* FONT HAND-DRAWN */
-            font-size: 2.8rem;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 3rem;
             color: #1a1a1a;
             line-height: 1.2;
             margin-bottom: 15px;
@@ -130,14 +100,159 @@
             color: #2ea44f;
         }
         .hero-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #555555;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
+            font-family: "Space Mono", monospace;
         }
-        .hero-buttons {
+        .subtitle-unisza {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* BARU: HUBUNGAN DI BAWAH TEXT NAMA */
+        .contact-info-left {
+            font-family: "Space Mono", monospace;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 25px;
             display: flex;
             gap: 15px;
+            align-items: center;
         }
+        .contact-info-left i {
+            color: #2ea44f;
+        }
+
+        /* BARU: GAMBAR DI SEBELAH KANAN DENGAN FRAME GLOWING INSPIRASI NS3.PNG */
+        .profile-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-frame-glowing {
+            border: 4px solid transparent;
+            padding: 10px;
+            background: transparent;
+            border-radius: 50%; /* Bulat NS3.PNG */
+            box-shadow: 0 0 20px rgba(46, 164, 79, 0.5); /* Glowing hijau */
+            position: relative;
+        }
+        .profile-img-placeholder {
+            width: 100%;
+            height: 350px;
+            width: 350px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .profile-img-placeholder i {
+            font-size: 10rem;
+            color: #888;
+        }
+        
+        /* HUBUNGAN DI BAWAH GAMBAR GUNA FONT KECIL */
+        .contact-info-below {
+            font-family: "Space Mono", monospace;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* BARU: KAD MENU INTERAKTIF (LOMPAT TANPA SKROL) */
+        .menu-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .menu-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e6ed;
+            border-radius: 12px;
+            padding: 25px;
+            width: calc(25% - 15px); /* 4 kad sebaris */
+            min-width: 200px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-color: #2ea44f;
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: #2ea44f;
+        }
+        .card-title {
+            font-family: "Space Mono", monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* GAYA UNTUK HALAMAN ISI KANDUNGAN */
+        .content-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 40px;
+            background: #ffffff;
+            border: 1px solid #e1e4e8;
+            border-radius: 12px;
+            position: relative;
+            height: calc(100% - 120px);
+            overflow-y: auto; /* Membenarkan skrol dalam kad */
+        }
+        .content-container h2 {
+            font-size: 1.8rem;
+            color: #2ea44f;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-family: "Space Mono", monospace;
+        }
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #666;
+            font-weight: bold;
+            font-family: "Space Mono", monospace;
+        }
+        .back-home:hover { color: #2ea44f; }
+        
+        ul { padding-left: 20px; color: #444; margin-bottom: 20px; }
+        li { margin-bottom: 10px; font-size: 1.05rem; }
+
+        /* JADUAL */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background-color: #f0f0f0; color: #2ea44f; font-family: "Space Mono", monospace; }
+
+        /* BUTANG PROJEK */
         .btn-green {
             background-color: #2ea44f;
             color: white;
@@ -145,161 +260,158 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 6px;
-        }
-        .btn-outline {
-            border: 1px solid #1a1a1a;
-            color: #1a1a1a;
-            padding: 12px 24px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
+            font-family: "Space Mono", monospace;
+            display: inline-block;
         }
         .btn-green:hover { background-color: #24823e; }
-        .btn-outline:hover { background-color: #f0f0f0; }
 
-        /* GAYA UNTUK BAHAGIAN ISI KANDUNGAN */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        section {
-            background: #fafafa;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 40px;
-            margin-bottom: 40px;
-            scroll-margin-top: 90px;
-        }
-        section h2 {
-            font-size: 1.8rem;
-            color: #2ea44f;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        ul { padding-left: 20px; color: #444; }
-        li { margin-bottom: 10px; font-size: 1.05rem; }
-
-        /* JADUAL */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #e0e0e0;
-            padding: 12px;
-            text-align: left;
-        }
-        th { background-color: #f0f0f0; color: #2ea44f; }
-
-        /* KOTAK EVIDENCE */
-        .evidence-box {
-            background: #ffffff;
-            border: 2px dashed #ccc;
-            padding: 30px;
-            text-align: center;
-            border-radius: 6px;
-            color: #666;
-            margin-top: 20px;
-        }
-
-        /* BARU: FOOTER DENGAN FONT IRREGULAR & MAKLUMAT TERKINI */
+        /* BARU: FOOTER DENGAN FONT IRREGULAR & MAKLUMAT TERKINI NS3.PNG */
         footer {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 20px;
+            color: #1a1a1a;
+            padding: 10px 40px;
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            border-top: 2px solid #2ea44f;
-            font-family: 'Permanent Marker', cursive; /* FONT IRREGULAR */
-            font-size: 1.05rem;
-            letter-spacing: 1px;
+            border-top: 1px solid #e1e4e8;
+            font-size: 0.75rem; /* Font kecil inspirasi NS3.PNG */
         }
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Content kanan NS3.PNG */
             align-items: center;
-            flex-wrap: wrap;
-            gap: 25px; /* Menambah jarak antara elemen footer */
+            gap: 10px;
+            font-family: "Space Mono", monospace;
         }
-        .footer-left {
+        
+        /* BARU: TOMBOL 'NEXT PAGE' DI BAWAH BUCU KANAN */
+        .next-page-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #2ea44f;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-family: "Space Mono", monospace;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 8px;
+            font-size: 0.9rem;
         }
-        .dot {
-            width: 10px;
-            height: 10px;
-            background-color: #2ea44f;
-            border-radius: 50%;
-            display: inline-block;
-        }
+        .next-page-btn:hover { background-color: #24823e; }
     </style>
+    
+    <script>
+        // FUNGSI UNTUK MENUKAR HALAMAN TANPA SKROL
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            // Paparkan halaman yang diminta
+            document.getElementById(pageId).classList.add('active-page');
+        }
+        
+        // Memastikan halaman utama dipaparkan semasa mula-mula load
+        window.onload = function() {
+            showPage('home-page');
+        };
+    </script>
 </head>
 <body>
 
-    <!-- NAVIGATION MENU (Boleh tekan-tekan melompat ke section) -->
+    <!-- NAVIGATION MENU (LOGO SAHAJA DI KANAN) -->
     <nav>
-        <div class="logo">DD<span>_</span></div>
-        <div class="nav-links">
-            <a href="#about"><span>01</span>Profile</a>
-            <a href="#career-exploration"><span>02</span>Career Path</a>
-            <a href="#skills-assessment"><span>03</span>Skills</a>
-            <a href="#career-plan"><span>04</span>Dev Plan</a>
-            <a href="#evidence"><span>05</span>Evidence</a>
-            <a href="#reflection"><span>06</span>Reflection</a>
-        </div>
+        <!-- BARU: LOGO "Danish Danial..." BERKELIP-KELIP -->
+        <div class="logo">Danish Danial<span>...</span></div>
     </nav>
 
-    <!-- MUKA DEPAN (HERO SECTION) -->
-    <div class="hero-container">
-        <!-- GAMBAR DI SEBELAH KIRI DENGAN FRAME BARU -->
-        <div class="profile-card">
-            <div class="image-frame-new">
-                <div class="profile-img-placeholder">[ PHOTO PLACEHOLDER ]</div>
-                <!-- BARU: TEKS GREETING DI BAWAH GAMBAR -->
-                <div class="greeting-tag">Hi, Danish Danial Is Here</div>
+    <!-- ======== HOME PAGE (MUKA DEPAN INTERAKTIF) ======== -->
+    <div id="home-page" class="page active-page">
+        <div class="hero-container">
+            <!-- TEKS DI SEBELAH KIRI (FONT HAND-DRAWN) -->
+            <div class="hero-text">
+                <h1>MUHAMMAD DANISH DANIAL<br><span>BIN MOHD NORDIN</span></h1>
+                <p>Bachelor of Computer Science (Computer Network Security) with Honours[cite: 1]</p>
+                <p class="subtitle-unisza">Universiti Sultan Zainal Abidin · UniSZA[cite: 1]</p>
+                
+                <!-- BARU: HUBUNGAN DI BAWAH TEXT NAMA GUNA FONT KECIL -->
+                <div class="contact-info-left">
+                    <span><i class="fas fa-envelope"></i> mhmmddnshdnial@gmail.com</span>
+                    <span>|</span>
+                    <span><i class="fas fa-phone-alt"></i> 60128851411</span>
+                </div>
+            </div>
+
+            <!-- GAMBAR DI SEBELAH KANAN DENGAN FRAME BARU GLOWING -->
+            <div class="profile-card">
+                <div class="image-frame-glowing">
+                    <div class="profile-img-placeholder">
+                        <i class="fas fa-user-circle"></i> <!-- Placeholder Icon -->
+                    </div>
+                </div>
+                <!-- HUBUNGAN DI BAWAH GAMBAR GUNA FONT KECIL -->
+                <div class="contact-info-below">
+                    mhmmddnshdnial@gmail.com l 60128851411
+                </div>
             </div>
         </div>
 
-        <!-- TEKS DI SEBELAH KANAN (DENGAN NAMA FONT HAND-DRAWN) -->
-        <div class="hero-text">
-            <!-- Teks root@portfolio... telah dibuang sepenuhnya di sini -->
-            <h1>MUHAMMAD DANISH DANIAL<br><span>BIN MOHD NORDIN</span></h1>
-            <p>Bachelor of Computer Science (Computer Network Security) with Honours<br>
-               Universiti Sultan Zainal Abidin · UniSZA</p>
-            <div class="hero-buttons">
-                <a href="#about" class="btn-green">Open Profile</a>
-                <a href="#evidence" class="btn-outline">View Evidence</a>
+        <!-- BARU: KAD MENU INTERAKTIF (LOMPAT TANPA SKROL INSPIRASI NS3.PNG) -->
+        <div class="menu-grid">
+            <div class="menu-card" onclick="showPage('career-exploration-page')">
+                <i class="fas fa-route card-icon"></i>
+                <div class="card-title">01_Career Path</div>
+                <div class="card-subtitle">Exploration & Responsibilities[cite: 1]</div>
+            </div>
+            <div class="menu-card" onclick="showPage('skills-assessment-page')">
+                <i class="fas fa-tasks card-icon"></i>
+                <div class="card-title">02_Skills</div>
+                <div class="card-subtitle">Self-Assessment & Gaps[cite: 1]</div>
+            </div>
+            <div class="menu-card" onclick="showPage('evidence-page')">
+                <i class="fas fa-certificate card-icon"></i>
+                <div class="card-title">03_Evidence</div>
+                <div class="card-subtitle">Project Showcase (OpenCV)[cite: 1]</div>
+            </div>
+            <div class="menu-card" onclick="showPage('reflection-page')">
+                <i class="fas fa-brain card-icon"></i>
+                <div class="card-title">04_Reflection</div>
+                <div class="card-subtitle">Dream Company & Personal Insights[cite: 1]</div>
             </div>
         </div>
     </div>
 
-    <!-- ISI KANDUNGAN PORTFOLIO -->
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am an IT / Computer Science student at UniSZA with a specialized focus on combining software security principles with hands-on hardware systems[cite: 1]. My academic passion lies in leveraging Artificial Intelligence and Computer Vision to architect reliable, real-world access control solutions[cite: 1].</p>
-        </section>
+    <!-- ======== ISI KANDUNGAN PORTFOLIO (HALAMAN ASING TANPA SKROL) ======== -->
 
-        <section id="career-exploration">
-            <h2>02. Career Exploration</h2>
+    <!-- SECTION 1 -->
+    <div id="career-exploration-page" class="page">
+        <div class="content-container">
+            <a href="#" class="back-home" onclick="showPage('home-page')"><i class="fas fa-arrow-left"></i> Home</a>
+            <h2>01. Career Exploration</h2>
             <p><strong>Target Role:</strong> Software Developer (Security-focused)[cite: 1]</p><br>
             <ul>
                 <li><strong>Job Responsibilities:</strong> Engineering, deploying, and testing robust software solutions; embedding multi-factor or biometric authentication mechanisms (such as secure facial recognition layers); running code testing cycles to locate system vulnerabilities; and ensuring seamless communication between backend logic and external physical devices[cite: 1].</li>
                 <li><strong>Required Skills:</strong> Mastery of high-level programming structures (Python, C++), security practices surrounding APIs, core understanding of cryptography, and working with secure OS configurations like Linux[cite: 1].</li>
             </ul>
-        </section>
+            <!-- BARU: TOMBOL 'NEXT PAGE' DI BAWAH BUCU KANAN -->
+            <a href="#" class="next-page-btn" onclick="showPage('skills-assessment-page')">Next Page <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
 
-        <section id="skills-assessment">
-            <h2>03. Personal Skills Assessment</h2>
+    <!-- SECTION 2 -->
+    <div id="skills-assessment-page" class="page">
+        <div class="content-container">
+            <a href="#" class="back-home" onclick="showPage('home-page')"><i class="fas fa-arrow-left"></i> Home</a>
+            <h2>02. Personal Skills Assessment</h2>
             <table>
                 <thead>
                     <tr>
@@ -312,53 +424,54 @@
                     <tr>
                         <td><strong>Secure Application Design</strong></td>
                         <td>Intermediate experience writing functional logic using Python[cite: 1].</td>
-                        <td>Reviewing OWASP Top 10 guidelines to actively mitigate system level bugs and exploit loops.</td>
+                        <td>Reviewing OWASP Top 10 guidelines to actively mitigate system level bugs and exploit loops[cite: 1].</td>
                     </tr>
                     <tr>
                         <td><strong>Biometric & System Integration</strong></td>
                         <td>Hands-on experience deploying computer vision models alongside physical electronics.</td>
-                        <td>Continuing to test diverse structural facial tracking approaches to elevate overall processing latency and accuracy.</td>
+                        <td>Continuing to test diverse structural facial tracking approaches to elevate overall processing latency and accuracy[cite: 1].</td>
                     </tr>
                 </tbody>
             </table>
-        </section>
+            <!-- BARU: TOMBOL 'NEXT PAGE' DI BAWAH BUCU KANAN -->
+            <a href="#" class="next-page-btn" onclick="showPage('evidence-page')">Next Page <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
 
-        <section id="career-plan">
-            <h2>04. Career Development Plan</h2>
-            <ul>
-                <li><strong>Short-Term Plan (1-2 Years):</strong> Complete my undergraduate degree at UniSZA and step into a structural development or IT Support role featuring security functions[cite: 1]. Concurrently, prepare for foundational professional certifications such as <strong>CompTIA Security+</strong> or <strong>Cisco CCNA</strong>[cite: 1].</li>
-            </ul>
-        </section>
-
-        <section id="evidence">
-            <h2>05. Evidence of Learning</h2>
-            <h3>Featured Project: Face Recognition Door Lock System</h3>
-            <div class="evidence-box">
-                <strong>[ 📷 Figure 1 & 💻 Figure 2 Project Screenshots Placeholder ]</strong>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Smart computer vision prototype integrating OpenCV facial algorithms with Arduino hardware control components[cite: 1].</p>
+    <!-- SECTION 3 -->
+    <div id="evidence-page" class="page">
+        <div class="content-container">
+            <a href="#" class="back-home" onclick="showPage('home-page')"><i class="fas fa-arrow-left"></i> Home</a>
+            <h2>03. Evidence of Learning</h2>
+            <h3>Featured Project: Face Recognition Door Lock System</h3><br>
+            <p>Smart computer vision prototype integrating OpenCV facial algorithms with Arduino hardware control components[cite: 1].</p><br>
+            <div style="text-align: center;">
+                <a href="https://github.com/danishdanial" target="_blank" class="btn-green">View Source Code on GitHub</a>
             </div>
-        </section>
+            <!-- BARU: TOMBOL 'NEXT PAGE' DI BAWAH BUCU KANAN -->
+            <a href="#" class="next-page-btn" onclick="showPage('reflection-page')">Next Page <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
 
-        <section id="reflection">
-            <h2>06. Personal Reflection</h2>
+    <!-- SECTION 4 -->
+    <div id="reflection-page" class="page">
+        <div class="content-container">
+            <a href="#" class="back-home" onclick="showPage('home-page')"><i class="fas fa-arrow-left"></i> Home</a>
+            <h2>04. Personal Reflection</h2>
             <p><strong>Target Organization:</strong> CyberSecurity Malaysia (or alternative Tech Integrators)[cite: 1]</p><br>
             <p><strong>What unique value do I provide?</strong> Most entry applicants stay strictly bounded by software parameters or web networks. My engineering balance enables me to fluidly bridge the gap between AI capabilities (Computer Vision processing) and real-world execution components (Microcontrollers/Access hardware), allowing me to design secure systems from end to end[cite: 1].</p>
-        </section>
-    </main>
+            <!-- BARU: TOMBOL 'NEXT PAGE' DI BAWAH BUCU KANAN (KEMBALI KE HOME) -->
+            <a href="#" class="next-page-btn" onclick="showPage('home-page')">Back to Home <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
 
-    <!-- FOOTER PALING BAWAH (FONT IRREGULAR + JARAK + MAKLUMAT TERKINI) -->
+    <!-- FOOTER PALING BAWAH (FONT KECIL NS3.PNG + MAKLUMAT TERKINI) -->
     <footer>
         <div class="footer-content">
-            <div class="footer-left">
-                <span class="dot"></span> AVAILABLE FOR ANYTHING
-            </div>
-            <div>KUALA TERENGGANU, TERENGGANU, MALAYSIA</div>
-            <div>CGPA 3.03 &nbsp;//&nbsp; UNISZA</div>
+            <!-- Font AVAILABLE OPPORTUNITIES telah dibuang -->
+            <div>KUALA TERENGGANU, TERENGGANU, MALAYSIA | CGPA 3.03 l UNISZA</div>
         </div>
     </footer>
-
-    <!-- Sikit ruang tambahan di bawah supaya footer tak menutup content utama -->
-    <div style="height: 90px;"></div>
 
 </body>
 </html>
