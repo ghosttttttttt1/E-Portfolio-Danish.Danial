@@ -11,180 +11,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* ==========================================================================
-           1. GAYA ASAS & SUSUNAN ELEMEN
-           ========================================================================== */
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: #f7f9fc; color: #1a1a1a; height: 100vh; overflow: hidden; position: relative; }
+        header { width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; z-index: 1000; background-color: #f7f9fc; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { text-decoration: none; color: #777; font-weight: normal; font-size: 0.95rem; font-family: -apple-system, sans-serif; }
+        .nav-links a.active-main { color: #2ea44f; font-weight: bold; }
         
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
-            background-color: #f7f9fc; 
-            color: #1a1a1a; 
-            height: 100vh; 
-            overflow: hidden; /* Mengunci paparan supaya tiada kesan skrol */
-            position: relative;
-        }
+        /* LOGO KANAN ATAS DENGAN ANIMASI TITIK HIDUP */
+        .logo { font-family: -apple-system, sans-serif; font-weight: bold; font-size: 1.15rem; color: #1a1a1a; display: flex; align-items: center; }
+        .dots::after { content: ''; animation: blinkDots 1.5s infinite steps(4, start); }
+        @keyframes blinkDots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } 100% { content: ''; } }
 
-        /* ==========================================================================
-           2. NAVIGASI MENU UTAMA (TOP HEADER)
-           ========================================================================== */
-        header {
-            width: 100%;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            background-color: #f7f9fc;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #777;
-            font-weight: normal;
-            font-size: 0.95rem;
-            font-family: -apple-system, sans-serif;
-        }
-
-        .nav-links a.active-main {
-            color: #2ea44f;
-            font-weight: bold;
-        }
-
-        .logo { 
-            font-family: -apple-system, sans-serif; 
-            font-weight: bold; 
-            font-size: 1.15rem; 
-            color: #1a1a1a; 
-        }
-
-        /* Navigasi Bertombol Nombor Di Bahagian Tengah */
-        .sub-nav-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            z-index: 999;
-        }
-
-        .top-nav { 
-            display: flex; 
-            gap: 20px; 
-            padding: 10px 0;
-        }
-
-        .top-nav a { 
-            text-decoration: none; 
-            color: #333; 
-            font-weight: 500; 
-            font-family: -apple-system, sans-serif; 
-            font-size: 0.95rem; 
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-        }
-
-        /* Garis penunjuk halaman aktif berwarna hijau */
-        .active-nav { 
-            color: #2ea44f !important;
-            border-bottom: 2px solid #2ea44f !important; 
-        }
-
-        /* ==========================================================================
-           3. KANDUNGAN HALAMAN (HERO CONTAINER FOR CONTENT)
-           ========================================================================== */
-        .hero-container { 
-            max-width: 1200px; 
-            margin: 0 auto;
-            padding: 0 50px;
-            display: flex; 
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start; 
-            height: 100vh; 
-        }
-
-        .content-title {
-            font-family: 'Space Mono', monospace;
-            color: #2ea44f;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .content-body {
-            font-size: 1.05rem;
-            color: #333;
-            max-width: 800px;
-        }
-
-        /* ==========================================================================
-           4. TOMBOL NAVIGASI HALAMAN (NEXT PAGE BUTTON)
-           ========================================================================== */
-        .next-page-btn { 
-            position: absolute; 
-            bottom: 45px; 
-            right: 40px; 
-            text-decoration: none; 
-            color: #333; 
-            background-color: #ffffff; 
-            padding: 6px 14px; 
-            border-radius: 4px; 
-            font-family: -apple-system, sans-serif;
-            font-size: 0.85rem; 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            border: 1px solid #ccc;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        /* ==========================================================================
-           5. BAHAGIAN BAWAH HALAMAN (FOOTER TEXT)
-           ========================================================================== */
-        footer { 
-            color: #444; 
-            padding: 15px 40px; 
-            position: fixed; 
-            bottom: 0; 
-            left: 0; 
-            width: 100%; 
-            z-index: 1000; 
-            background-color: #f7f9fc;
-        }
-
-        .footer-content { 
-            width: 100%; 
-            display: flex; 
-            justify-content: flex-end; 
-            align-items: center; 
-            font-family: "Space Mono", monospace; 
-            font-size: 0.72rem;
-            letter-spacing: 0.5px;
-        }
+        .sub-nav-container { width: 100%; display: flex; justify-content: center; position: fixed; top: 70px; left: 0; z-index: 999; }
+        .top-nav { display: flex; gap: 20px; padding: 10px 0; }
+        .top-nav a { text-decoration: none; color: #333; font-weight: 500; font-family: -apple-system, sans-serif; font-size: 0.95rem; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+        .active-nav { color: #2ea44f !important; border-bottom: 2px solid #2ea44f !important; }
+        .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 50px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 100vh; }
+        .content-title { font-family: 'Space Mono', monospace; color: #2ea44f; font-size: 1.8rem; margin-bottom: 20px; }
+        .content-body { font-size: 1.05rem; color: #333; max-width: 800px; }
+        .next-page-btn { position: absolute; bottom: 45px; right: 40px; text-decoration: none; color: #333; background-color: #ffffff; padding: 6px 14px; border-radius: 4px; font-family: -apple-system, sans-serif; font-size: 0.85rem; display: flex; align-items: center; gap: 15px; border: 1px solid #ccc; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        footer { color: #444; padding: 15px 40px; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000; background-color: #f7f9fc; }
+        .footer-content { width: 100%; display: flex; justify-content: flex-end; align-items: center; font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="nav-links">
-            <a href="#">HOME</a>
-            <a href="#">CV</a>
             <a href="#" class="active-main">PORTFOLIO</a>
         </div>
-        <div class="logo">Danish Danial...</div>
+        <div class="logo">Danish Danial<span class="dots"></span></div>
     </header>
 
     <div class="sub-nav-container">
